@@ -9,10 +9,6 @@ class ShowsAPI {
         if (localStorage.getItem(query)) {
             return JSON.parse(localStorage.getItem(query));
         }
-
-        // if (this.cashe[query])
-        //     return this.cashe[query];
-
         const result = await fetch(this.url + "/" + query);
         const resultParsed = await result.json(result);
 
@@ -25,10 +21,8 @@ class ShowsAPI {
             }
         })
 
-        // this.cashe[query] = transformed;
-        // console.log(resultParsed);
-
         localStorage.setItem(query, JSON.stringify(transformed));
+        return transformed;
     }
 }
 
