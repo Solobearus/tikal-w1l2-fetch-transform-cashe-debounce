@@ -1,7 +1,8 @@
-import {ShowsAPI} from './index.js'
+import { ShowsAPI } from './index.js'
 
 
-// http://api.tvmaze.com/search/shows?q=american
 const api = new ShowsAPI("http://api.tvmaze.com/search/shows?q=americans");
 
-api.fetchData()
+api.fetchData('lost').then(console.log)
+api.fetchData('walking').then(console.log)
+// console.log(api.fetchData('lost'));
